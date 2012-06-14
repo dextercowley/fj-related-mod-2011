@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="FJ Related Plus" basedir="." default="create_zip">
+	<property name="src" value="${project.basedir}" override="true" />
+	<fileset dir="${src}" id="allfiles">
+		<include name="language/*/*.*" />
+		<include name="tmpl/*.*" />
+		<include name="fields/*.*" />
+		<include name="helper.php" />
+		<include name="mod_fj_related_plus.php" />
+		<include name="index.html" />
+		<include name="mod_fj_related_plus.xml" />
+	</fileset>
+
+	<!-- Archive Target -->
+	<target name="create_zip" description="create zip archives">
+		<echo>Running create_zip.xml. Creating zip and gz archives...
+		</echo>
+		<delete file="${src}/mod_fj_related_plus_dev.zip" />
+		<zip destfile="${src}/mod_fj_related_plus_dev.zip">
+			<fileset refid="allfiles" />
+		</zip>
+		<tar destfile="${src}/mod_fj_related_plus_dev.tar.gz" compression="gzip">
+			<fileset refid="allfiles" />
+		</tar>
+	</target>
+</project>

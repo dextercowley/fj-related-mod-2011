@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="FJ Related Plus 1.6" default="copy_all" basedir=".">
+	<property name="src" value="." />
+	<property name="test" value="../fj_test_16" />
+	<target name="copy_all" description="Copies files from test project.">
+		<echo message="Copying FJ Related Plus files from test to dev..." />
+		<copy todir="${src}/">
+			<fileset dir="${test}/modules/mod_fj_related_plus">
+				<include name="*/*.*" />
+				<include name="*/*/*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${src}" >
+			<fileset dir="${test}/modules/mod_fj_related_plus/" >
+				<include name="*.*" />
+			</fileset>
+		</copy>
+	</target>
+</project>
