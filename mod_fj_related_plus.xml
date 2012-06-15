@@ -22,6 +22,20 @@
     	<folder>language</folder>
 	</files>
 	<help url="FJ_RELATED_PLUS_HELP_URL" />
+	
+	<update> <!-- Runs on update; New in 2.5 -->
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	
+	<!-- The updateservers element is required to enable the automatic update. -->
+	<!-- It is used to add the rows to #__update_sites and #__update_sites_extensions tables -->
+	<updateservers>
+		<server type="extension" priority="1" name="fj_related_plus"
+			>http://joomlaprogrammingbook.com/updateserver/joomprosubs-update.xml</server>
+</updateservers>
+	
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addpath="/modules/mod_fj_related_plus/fields">
