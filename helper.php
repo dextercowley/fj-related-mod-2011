@@ -383,7 +383,7 @@ class modFJRelatedPlusHelper
 		}
 	}
 
-	function reverseSort ($row1, $row2) // comp
+	static function reverseSort ($row1, $row2) // comp
 	{
 		if ($row1->match_count == $row2->match_count) // sort by title within match_count (if same # matches)
 		{
@@ -391,7 +391,7 @@ class modFJRelatedPlusHelper
 		}
 		else
 		{
-			$result = - strcmp ($row1->match_count, $row2->match_count); // otherwise, sort by reverse match_count
+			$result = $row1->match_count > $row2->match_count ? -1 : 1; // otherwise, sort by reverse match_count
 		}
 		return $result;
 	}
@@ -403,7 +403,7 @@ class modFJRelatedPlusHelper
 	 * @param $rawText
 	 * @return string
 	 */
-	function getUpToLastSpace($rawText)
+	static function getUpToLastSpace($rawText)
 	{
 		$throwAway = strrchr($rawText, ' ');
 		$endPosition = strlen($rawText) - strlen($throwAway);
@@ -417,7 +417,7 @@ class modFJRelatedPlusHelper
 	 * @param $maxLength max length
 	 * @return unknown_type
 	 */
-	function getPreview($rawText, $maxLength) {
+	static function getPreview($rawText, $maxLength) {
 		$strippedText = substr(strip_tags($rawText), 0, $maxLength);
 		$strippedText = modFJRelatedPlusHelper::getUpToLastSpace($strippedText);
 		$j = 0; // counter in $rawText
@@ -440,7 +440,7 @@ class modFJRelatedPlusHelper
 	 * returns array() of clean keywords
 	 *
 	 */
-	function cleanKeywordList($rawList) {
+	static function cleanKeywordList($rawList) {
 		$bad_characters = array("\n", "\r", "\"", "<", ">"); // array of characters to remove
 		$after_clean = JString::str_ireplace($bad_characters, "", $rawList); // remove bad characters
 		$keys = explode(',', $after_clean); // create array using commas as delimiter
@@ -458,7 +458,7 @@ class modFJRelatedPlusHelper
 	 *
 	 * returns boolean True if current view is an article
 	 */
-	function isArticle() {
+	static function isArticle() {
 		$option = JRequest::getCmd('option');
 		$view = JRequest::getCmd('view');
 		$id	= JRequest::getInt('id');
@@ -471,8 +471,8 @@ class modFJRelatedPlusHelper
 	 * @param $buffer -- intro text to fix
 	 * @return $fixedText -- with image tags fixed for SEF
 	 */
-	function fixSefImages ($buffer) {
-		$config =& JFactory::getConfig();
+	static function fixSefImages ($buffer) {
+		$config = JFactory::getConfig();
 		$sef = $config->getValue('config.sef');
 		if ($sef) // process if SEF option enabled
 		{
@@ -484,7 +484,7 @@ class modFJRelatedPlusHelper
 		return $buffer;
 	}
 
-	function dbQuote($string) {
+	static function dbQuote($string) {
 		if ($string) {
 			$db =& JFactory::getDBO();
 			$string = $db->Quote($string);
