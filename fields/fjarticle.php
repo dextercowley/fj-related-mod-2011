@@ -1,9 +1,8 @@
 <?php
 /**
 /**
- * @version		$Id: fjarticle.php 49 2010-12-04 01:50:52Z dextercowley $
  * @package		com_fjrelated_plus
- * @copyright	Copyright (C) 2008, 2009 Mark Dexter. Portions Copyright Open Source Matters. All rights reserved.
+ * @copyright	Copyright (C) 2008 - 2012 Mark Dexter. Portions Copyright Open Source Matters. All rights reserved.
  * @license		http://www.gnu.org/licenses/gpl.html
  *
 */

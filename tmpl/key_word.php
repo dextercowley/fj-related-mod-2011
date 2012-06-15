@@ -1,8 +1,7 @@
-<?php 
+<?php
 /**
- * @version		$Id: key_word.php 53 2010-12-05 16:13:50Z dextercowley $
  * @package		mod_fj_related_plus
- * @copyright	Copyright (C) 2008 Mark Dexter. All rights reserved.
+ * @copyright	Copyright (C) 2008 - 2012 Mark Dexter. All rights reserved.
  * @license		http://www.gnu.org/licenses/gpl.html
  */
 // no direct access
@@ -36,7 +35,7 @@ foreach ($list as $item) // loop through articles
 				$thisWord = trim($nextKey);
 			}
 		}
-		if (($matchAuthorAlias) && ($mainArticleAlias) 
+		if (($matchAuthorAlias) && ($mainArticleAlias)
 				&& (JString::strtoupper($mainArticleAlias) == JString::strtoupper($matchWord))) {
 			$thisWord = $mainArticleAlias;
 		}
@@ -68,33 +67,33 @@ ksort($outputArray);  // sort keywords alphabetically ?>
 				<span class="hasTip" title="<?php echo htmlspecialchars($thisArticle->title);?>::<?php echo $thisArticle->introtext;?>">
 				<?php echo $thisArticle->title;?>
 				<?php if ($showDate) echo ' - ' . JHTML::_('date', $thisArticle->date, $dateFormat); ?>
-				<?php if ($showCount)  
+				<?php if ($showCount)
 				{
 					if ($thisArticle->match_count == 1)
 					{
-						echo ' (1 ' . JText::_('match') . ')'; 
+						echo ' (1 ' . JText::_('match') . ')';
 					}
 					else
 					{
-						echo ' (' . $thisArticle->match_count . ' '. JText::_('matches') . ')'; 
+						echo ' (' . $thisArticle->match_count . ' '. JText::_('matches') . ')';
 					}
 				} ?>
-				</span></a>		
+				</span></a>
 			<?php endif; ?>
 
 			<?php if (!($showTooltip) && ($titleLinkable)) : ?>
 				<a href="<?php echo $thisArticle->route;?>" class="fj_relatedplus<?php echo $params->get('moduleclass_sfx');?>">
 				<?php echo $thisArticle->title;?>
 				<?php if ($showDate) echo ' - ' . JHTML::_('date', $thisArticle->date, $dateFormat); ?>
-				<?php if ($showCount)  
+				<?php if ($showCount)
 				{
 					if ($thisArticle->match_count == 1)
 					{
-						echo ' (1 ' . JText::_('match') . ')'; 
+						echo ' (1 ' . JText::_('match') . ')';
 					}
 					else
 					{
-						echo ' (' . $thisArticle->match_count . ' '. JText::_('matches') . ')'; 
+						echo ' (' . $thisArticle->match_count . ' '. JText::_('matches') . ')';
 					}
 				} ?>
 				</a>
@@ -105,32 +104,32 @@ ksort($outputArray);  // sort keywords alphabetically ?>
 				<span class="hasTip" title="<?php echo htmlspecialchars($thisArticle->title);?>::<?php echo $thisArticle->introtext;?>">
 				<?php echo $thisArticle->title;?>
 				<?php if ($showDate) echo ' - ' . JHTML::_('date', $thisArticle->date, $dateFormat); ?>
-				<?php if ($showCount)  
+				<?php if ($showCount)
 				{
 					if ($thisArticle->match_count == 1)
 					{
-						echo ' (1 ' . JText::_('match') . ')'; 
+						echo ' (1 ' . JText::_('match') . ')';
 					}
 					else
 					{
-						echo ' (' . $thisArticle->match_count . ' '. JText::_('matches') . ')'; 
+						echo ' (' . $thisArticle->match_count . ' '. JText::_('matches') . ')';
 					}
 				} ?>
-				</span></span>		
+				</span></span>
 			<?php endif; ?>
 			<?php if (!($showTooltip) && !($titleLinkable)) : ?>
 				<span class="fj_relatedplus<?php echo $params->get('moduleclass_sfx');?>">
 				<?php echo $thisArticle->title;?>
 				<?php if ($showDate) echo ' - ' . JHTML::_('date', $thisArticle->date, $dateFormat); ?>
-				<?php if ($showCount)  
+				<?php if ($showCount)
 				{
 					if ($thisArticle->match_count == 1)
 					{
-						echo ' (1 ' . JText::_('match') . ')'; 
+						echo ' (1 ' . JText::_('match') . ')';
 					}
 					else
 					{
-						echo ' (' . $thisArticle->match_count . ' '. JText::_('matches') . ')'; 
+						echo ' (' . $thisArticle->match_count . ' '. JText::_('matches') . ')';
 					}
 				} ?>
 				</span>
