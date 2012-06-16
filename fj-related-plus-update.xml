@@ -5,12 +5,12 @@
 		<description>FJ Related Plus Module</description>
 		<element>mod_fj_related_plus</element>
 		<type>module</type>
-		<version>1.05</version> <!-- This will be the component version after the update. -->
+		<version>1.04</version> <!-- This will be the component version after the update. -->
 		<infourl title="FJ Stuff">http://joomlacode.org/gf/project/freejoomla/wiki/</infourl>
 		<downloads> <!-- Careful: No spaces or new lines are allowed in the downloadurl. -->
 			<!-- This is a placeholder URL. Change when 1.05 is actually ready. -->	
 			<downloadurl type="full" format="zip"
-			>http://joomlacode.org/gf/download/frsrelease/xxx/yyy/mod_fj_related_plus_2011_1.05.zip</downloadurl>			
+			>http://joomlacode.org/gf/download/frsrelease/xxx/yyy/mod_fj_related_plus_2011_1.04.zip</downloadurl>			
 		</downloads>
 		<maintainer>Mark Dexter</maintainer>
 		<maintainerurl>http://joomlaprogrammingbook.com</maintainerurl>

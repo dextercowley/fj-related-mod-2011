@@ -33,8 +33,8 @@
 	<!-- It is used to add the rows to #__update_sites and #__update_sites_extensions tables -->
 	<updateservers>
 		<server type="extension" priority="1" name="fj_related_plus"
-			>http://joomlaprogrammingbook.com/updateserver/joomprosubs-update.xml</server>
-</updateservers>
+			>http://joomlacode.org/gf/download/frsrelease/17130/74575/fj-related-plus-update.xml</server>
+	</updateservers>
 	
 	<config>
 		<fields name="params">
