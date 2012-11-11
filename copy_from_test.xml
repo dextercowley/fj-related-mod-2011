@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="fj-related-mod-2011" default="copy_all" basedir=".">
 	<property name="src" value="." />
-	<property name="test" value="../fj-test" />
+	<property name="test" value="../fj-test-3x" />
 	<target name="copy_all" description="Copies files from test project.">
 		<echo message="Copying FJ Related Plus files from test to dev..." />
 		<copy todir="${src}/">
