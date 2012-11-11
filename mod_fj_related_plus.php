@@ -9,7 +9,7 @@
 defined('_JEXEC') or die;
 
 // Include the syndicate functions only once
-require_once (dirname(__FILE__).DS.'helper.php');
+require_once (dirname(__FILE__) . '/helper.php');
 
 $list = modFJRelatedPlusHelper::getList($params); // get return results from the helper
 $articleView = modFJRelatedPlusHelper::isArticle(); // is this an article?

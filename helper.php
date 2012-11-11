@@ -8,7 +8,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-require_once (JPATH_SITE.DS.'components'.DS.'com_content'.DS.'helpers'.DS.'route.php');
+require_once (JPATH_SITE . '/components/com_content/helpers/route.php');
 
 class modFJRelatedPlusHelper
 {
@@ -74,7 +74,7 @@ class modFJRelatedPlusHelper
 			$nullDate = $db->getNullDate();
 
 			$date = JFactory::getDate();
-			$now  = $date->toMySQL();
+			$now  = $date->toSql();
 
 			$related			= array();
 			$matching_keywords 	= array();
@@ -383,7 +383,7 @@ class modFJRelatedPlusHelper
 		}
 	}
 
-	static function reverseSort ($row1, $row2) // comp
+	public static function reverseSort ($row1, $row2) // comp
 	{
 		if ($row1->match_count == $row2->match_count) // sort by title within match_count (if same # matches)
 		{
@@ -403,7 +403,7 @@ class modFJRelatedPlusHelper
 	 * @param $rawText
 	 * @return string
 	 */
-	static function getUpToLastSpace($rawText)
+	public static function getUpToLastSpace($rawText)
 	{
 		$throwAway = strrchr($rawText, ' ');
 		$endPosition = strlen($rawText) - strlen($throwAway);
@@ -417,7 +417,7 @@ class modFJRelatedPlusHelper
 	 * @param $maxLength max length
 	 * @return unknown_type
 	 */
-	static function getPreview($rawText, $maxLength) {
+	public static function getPreview($rawText, $maxLength) {
 		$strippedText = substr(strip_tags($rawText), 0, $maxLength);
 		$strippedText = modFJRelatedPlusHelper::getUpToLastSpace($strippedText);
 		$j = 0; // counter in $rawText
@@ -440,7 +440,7 @@ class modFJRelatedPlusHelper
 	 * returns array() of clean keywords
 	 *
 	 */
-	static function cleanKeywordList($rawList) {
+	public static function cleanKeywordList($rawList) {
 		$bad_characters = array("\n", "\r", "\"", "<", ">"); // array of characters to remove
 		$after_clean = JString::str_ireplace($bad_characters, "", $rawList); // remove bad characters
 		$keys = explode(',', $after_clean); // create array using commas as delimiter
@@ -458,7 +458,7 @@ class modFJRelatedPlusHelper
 	 *
 	 * returns boolean True if current view is an article
 	 */
-	static function isArticle() {
+	public static function isArticle() {
 		$option = JRequest::getCmd('option');
 		$view = JRequest::getCmd('view');
 		$id	= JRequest::getInt('id');
@@ -471,7 +471,7 @@ class modFJRelatedPlusHelper
 	 * @param $buffer -- intro text to fix
 	 * @return $fixedText -- with image tags fixed for SEF
 	 */
-	static function fixSefImages ($buffer) {
+	public static function fixSefImages ($buffer) {
 		$config = JFactory::getConfig();
 		$sef = $config->getValue('config.sef');
 		if ($sef) // process if SEF option enabled
@@ -484,7 +484,7 @@ class modFJRelatedPlusHelper
 		return $buffer;
 	}
 
-	static function dbQuote($string) {
+	public static function dbQuote($string) {
 		if ($string) {
 			$db =& JFactory::getDBO();
 			$string = $db->Quote($string);
